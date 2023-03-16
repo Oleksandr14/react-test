@@ -1,10 +1,9 @@
-import { GlobalStyle } from "../styles/GlobalStyle";
+import Card from "./Card/Card";
 
 function App() {
   return (
     <div>
-      Hello
-      <GlobalStyle />
+      <Card />
     </div>
   );
 }
