@@ -1,12 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import styles from "./UserCard.module.css";
 
 import boy from "../../images/Hansel.png";
 
+const KEY_FOLLOWER = "isFollowing";
+const KEY_COUNT = "followersCount";
+
 const UserCard = () => {
   const [isFollowing, setIsFollowing] = useState(false);
   const [followersCount, setFollowersCount] = useState(100500);
+
+  useEffect(() => {
+    if (localStorage.getItem(KEY_FOLLOWER) === "true") {
+      setIsFollowing(true);
+      setFollowersCount(JSON.parse(localStorage.getItem(KEY_COUNT)));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(KEY_FOLLOWER, isFollowing);
+    localStorage.setItem(KEY_COUNT, followersCount);
+  }, [isFollowing, followersCount]);
 
   const handleFollowClick = () => {
     setIsFollowing(true);
