@@ -16,7 +16,6 @@ const UserCard = ({ member, increaseFollowers, decreaseFollowers }) => {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <img src={member.avatar} alt="Boy" width="62" />
-
         <div className={styles.userInfo}>
           <h2 className={styles.title}>{member.user}</h2>
           <UserList followersCount={member.followers} tweets={member.tweets} />
