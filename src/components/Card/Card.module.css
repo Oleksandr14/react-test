@@ -5,3 +5,9 @@
     height: 100vh;
     background-color: #fdfcfa;
 }
+
+.cardList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}

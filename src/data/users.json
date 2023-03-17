@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "user": "Elon Musk",
+    "tweets": 777,
+    "followers": 100500,
+    "avatar": "https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_wavy_hair_jacket_turtleneck.png",
+    "isFollow": false
+  },
+  {
+    "id": 2,
+    "user": "Walter White",
+    "tweets": 987,
+    "followers": 540590,
+    "avatar": "https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_beard_round_glasses_glasses_turtleneck_jacket.png",
+    "isFollow": false
+  },
+  {
+    "id": 3,
+    "user": "Tough guy",
+    "tweets": 1232,
+    "followers": 382941,
+    "avatar": "https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_turtleneck_sunglasses_beard_wavy_hair.png",
+    "isFollow": false
+  }
+]

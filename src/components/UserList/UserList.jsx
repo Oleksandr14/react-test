@@ -1,10 +1,10 @@
 import styles from "./UserList.module.css";
 
-const UserList = ({ followersCount }) => {
+const UserList = ({ followersCount, tweets }) => {
   return (
     <ul className={styles.list}>
       <li>
-        <span>777</span> tweets
+        <span>{tweets}</span> tweets
       </li>
       <li>
         <span>{followersCount.toLocaleString("en-US")}</span> Followers

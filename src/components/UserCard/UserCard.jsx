@@ -1,52 +1,30 @@
-import { useState, useEffect } from "react";
-
 import UserList from "../UserList/UserList";
 import Button from "../Button/Button";
 
 import styles from "./UserCard.module.css";
 
-import boy from "../../images/Hansel.png";
-
-const KEY_FOLLOWER = "isFollowing";
-const KEY_COUNT = "followersCount";
-
-const UserCard = () => {
-  const [isFollowing, setIsFollowing] = useState(false);
-  const [followersCount, setFollowersCount] = useState(100500);
-
-  useEffect(() => {
-    if (localStorage.getItem(KEY_FOLLOWER) === "true") {
-      setIsFollowing(true);
-      setFollowersCount(JSON.parse(localStorage.getItem(KEY_COUNT)));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem(KEY_FOLLOWER, isFollowing);
-    localStorage.setItem(KEY_COUNT, followersCount);
-  }, [isFollowing, followersCount]);
-
-  const handleFollowClick = () => {
-    setIsFollowing(true);
-    setFollowersCount((prevCount) => prevCount + 1);
+const UserCard = ({ member, increaseFollowers, decreaseFollowers }) => {
+  const handleFollowClick = (id) => {
+    increaseFollowers(id);
   };
 
-  const handleUnfollowClick = () => {
-    setIsFollowing(false);
-    setFollowersCount((prevCount) => prevCount - 1);
+  const handleUnfollowClick = (id) => {
+    decreaseFollowers(id);
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <img src={boy} alt="Boy" width="62" />
+        <img src={member.avatar} alt="Boy" width="62" />
 
         <div className={styles.userInfo}>
-          <UserList followersCount={followersCount} />
+          <h2 className={styles.title}>{member.user}</h2>
+          <UserList followersCount={member.followers} tweets={member.tweets} />
           <Button
-            isFollowing={isFollowing}
             handleFollowClick={handleFollowClick}
             handleUnfollowClick={handleUnfollowClick}
+            isFollow={member.isFollow}
+            id={member.id}
           />
         </div>
       </div>
