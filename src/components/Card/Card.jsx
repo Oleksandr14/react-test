@@ -6,13 +6,15 @@ import styles from "./Card.module.css";
 
 import users from "../../data/users.json";
 
-const initialMembers = JSON.parse(localStorage.getItem("members")) || users;
+const KEY_MEMBER = "members";
+
+const initialMembers = JSON.parse(localStorage.getItem(KEY_MEMBER)) || users;
 
 const Card = () => {
   const [members, setMembers] = useState(initialMembers);
 
   useEffect(() => {
-    localStorage.setItem("members", JSON.stringify(members));
+    localStorage.setItem(KEY_MEMBER, JSON.stringify(members));
   }, [members]);
 
   const increaseFollowers = (id) => {
